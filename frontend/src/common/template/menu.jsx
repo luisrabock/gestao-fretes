@@ -10,10 +10,10 @@ export default () => (
   <MenuTree label='Cadastro' icon='edit'>
     <MenuItem path='#/notfis' label='Arquivo NOTFIS' icon='plus-circle' />
     <MenuItem path='#/conemb' label='Arquivo CONEMB' icon='plus-circle' />
-    <MenuItem path='#' label='Arquivo OCOREN' icon='plus-circle' />
-    <MenuItem path='#' label='Arquivo PREFAT' icon='plus-circle' />
-    <MenuItem path='#' label='Arquivo DOCCOB' icon='plus-circle' />
-    <MenuItem path='#' label='Inserção individual' icon='plus-circle' />
+    <MenuItem path='#/ocorren' label='Arquivo OCORREN' icon='plus-circle' />
+    <MenuItem path='#/prefat' label='Arquivo PREFAT' icon='plus-circle' />
+    <MenuItem path='#/doccob' label='Arquivo DOCCOB' icon='plus-circle' />
+    <MenuItem path='#/individual' label='Inserção individual' icon='plus-circle' />
   </MenuTree>
   <MenuTree label='Taxas e tarifas' icon='percent'>
     <MenuItem path='#' label='Cadastro' icon='plus-circle'/>

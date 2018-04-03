@@ -3,12 +3,11 @@ import React, { Component } from 'react';
 import ContentHeader from '../template/contentHeader';
 import Content from '../template/content';
 
-class Conemb extends Component {
+class Individual extends Component {
     render() {
         return (
             <div>
-                <ContentHeader title='Upload de arquivo CONEMB'/>
-                <Content />
+                Individual
             </div>
         )
     }
@@ -16,4 +15,4 @@ class Conemb extends Component {
 
 
 
-export default Conemb;
+export default Individual;

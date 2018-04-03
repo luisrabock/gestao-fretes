@@ -2,92 +2,23 @@ import React, { Component } from 'react';
 
 import ContentHeader from '../template/contentHeader';
 import Content from '../template/content';
+import InfoBox from '../template/infoBox';
+import Map from '../template/map';
 
 class Home extends Component {
     render() {
         return (
-            <section className="content">
+     <section className="content">
+        <div className="row">
+        <InfoBox icon='bg-red'icons='hourglass-end' title='Lead-Time do mês' value='9.21 Dias'/>
+        <InfoBox icon='bg-green'icons='bolt' title='Eficiência do mês' value='90%'/>
+        <InfoBox icon='bg-blue'icons='money' title='Gasto do mês' value='R$ 100.132,00'/>
+        <InfoBox icon='bg-yellow'icons='percent' title='Percentual do mês' value='2.25'/>
 
-         
-            <div className="row">
-                <div className="col-lg-3 col-xs-6">
-                  
-                    <div className="small-box bg-aqua">
-                        <div className="inner">
-                            <h3>
-                                150
-                            </h3>
-                            <p>
-                                New Orders
-                            </p>
-                        </div>
-                        <div className="icon">
-                            <i className="ion ion-bag"></i>
-                        </div>
-                        <a href="#" className="small-box-footer">
-                            More info <i className="fa fa-arrow-circle-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div className="col-lg-3 col-xs-6">
-                    
-                    <div className="small-box bg-green">
-                        <div className="inner">
-                            <h3>sty
-                                53<sup>%</sup>
-                            </h3>
-                            <p>
-                                Bounce Rate
-                            </p>
-                        </div>
-                        <div className="icon">
-                            <i className="ion ion-stats-bars"></i>
-                        </div>
-                        <a href="#" className="small-box-footer">
-                            More info <i className="fa fa-arrow-circle-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div className="col-lg-3 col-xs-6">
-                 
-                    <div className="small-box bg-yellow">
-                        <div className="inner">
-                            <h3>
-                                44
-                            </h3>
-                            <p>
-                                User Registrations
-                            </p>
-                        </div>
-                        <div className="icon">
-                            <i className="ion ion-person-add"></i>
-                        </div>
-                        <a href="#" className="small-box-footer">
-                            More info <i className="fa fa-arrow-circle-right"></i>
-                        </a>
-                    </div>
-                </div>
-                <div className="col-lg-3 col-xs-6">
-                 
-                    <div className="small-box bg-red">
-                        <div className="inner">
-                            <h3>
-                                65
-                            </h3>
-                            <p>
-                                Unique Visitors
-                            </p>
-                        </div>
-                        <div className="icon">
-                            <i className="ion ion-pie-graph"></i>
-                        </div>
-                        <a href="#" className="small-box-footer">
-                            More info <i className="fa fa-arrow-circle-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            </section>
+        </div>
+        <div className='row'>
+        </div>
+     </section>
         )
     }
 }

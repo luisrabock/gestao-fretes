@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import ContentHeader from '../template/contentHeader';
 import Content from '../template/content';
 
-class InputFile extends Component {
+class Notfis extends Component {
     render() {
         return (
             <div>
@@ -16,4 +16,4 @@ class InputFile extends Component {
 
 
 
-export default InputFile;
+export default Notfis;
