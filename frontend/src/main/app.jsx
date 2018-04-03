@@ -4,6 +4,7 @@ import Header from '../common/template/header';
 import '../common/template/dependencias';
 import Footer from '../common/template/footer';
 import Sidebar from '../common/template/sidebar';
+import Routes from '../main/routes'
 
 
 export default class App extends Component {
@@ -12,9 +13,12 @@ export default class App extends Component {
 
         return (
             <div className='wrapper'>
-                <Header />
-                <Footer />
-                <Sidebar />
+                <Header/>
+                <Sidebar/>
+                <div className='content-wrapper' >
+                    <Routes />
+                </div>
+                <Footer/>
             </div>
         );
     }
