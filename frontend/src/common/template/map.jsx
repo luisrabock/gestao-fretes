@@ -1,22 +1,39 @@
-import { compose, withProps } from "recompose"
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
+/*eslint-disable */
 
-const MyMapComponent = compose(
-  withProps({
-    googleMapURL: "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places",
-    loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: `400px` }} />,
-    mapElement: <div style={{ height: `100%` }} />,
-  }),
-  withScriptjs,
-  withGoogleMap
-)((props) =>
-  <GoogleMap
-    defaultZoom={8}
-    defaultCenter={{ lat: -34.397, lng: 150.644 }}
-  >
-    {props.isMarkerShown && <Marker position={{ lat: -34.397, lng: 150.644 }} />}
-  </GoogleMap>
-))
+import React, { PureComponent } from 'react';
+import Map from 'pigeon-maps';
+import Marker from 'pigeon-marker';
+import { markers, mapConfig } from '../../helper/utils'
 
-<MyMapComponent isMarkerShown />
+
+const getProvider = (x, y, z) => `https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/${z}/${x}/${y}.png`;
+
+class PigeonMaps extends PureComponent {
+
+  onMarkerClick(evt) {
+    console.log(evt.payload);
+  }
+
+  render() {
+    // create an array with marker components
+    const PigeonMarkers = markers.map(marker => (
+      <Marker key={`marker_${marker.name}`} anchor={marker.latlng} payload={marker.name} onClick={this.onMarkerClick} />
+    ));
+
+    return (
+      <div className="map">
+        <Map
+          width={window.innerWidth}
+          height={600}
+          defaultCenter={mapConfig.center}
+          defaultZoom={mapConfig.zoom}
+          provider={getProvider}
+        >
+          {PigeonMarkers}
+        </Map>
+      </div>
+    );
+  }
+}
+
+export default PigeonMaps;
