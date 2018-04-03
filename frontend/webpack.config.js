@@ -12,7 +12,7 @@ module.exports = {
     contentBase: './public'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx', '.webpack.js', '.web.js'],
     alias: {
       modules: __dirname + '/node_modules',
       jquery: 'modules/admin-lte/plugins/jQuery/jquery-2.2.3.min.js',
@@ -31,9 +31,10 @@ module.exports = {
     loaders: [{
       test: /.js[x]?$/,
       loader: 'babel-loader',
+      loaders: ["jsx-loader?insertPragma=React.DOM&harmony"],
       exclude: /node_modules/,
       query: {
-        presets: ['es2015', 'react'],
+        presets: ['es2015', 'react', "stage-0"],
         plugins: ['transform-object-rest-spread']
       }
     }, {
@@ -45,3 +46,4 @@ module.exports = {
     }]
   }
 };
+
