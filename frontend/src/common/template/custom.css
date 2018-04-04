@@ -2,7 +2,7 @@
   position: fixed;
   bottom:0px;
   width:100%;
-}
+}           
 
 button {
   margin-left: 5px;
@@ -18,4 +18,16 @@ button {
 
 .skin-blue .main-header .logo {
     background-color: #34495e!important;
+}
+#root, #app, #map {
+  height: 100%;
+}
+
+#state {
+  width: 200px;
+  float: left;
+}
+
+#map {
+  margin-left: 200px;
 }

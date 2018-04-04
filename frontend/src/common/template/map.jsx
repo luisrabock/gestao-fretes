@@ -3,16 +3,30 @@
 import React, { PureComponent } from 'react';
 import Map from 'pigeon-maps';
 import Marker from 'pigeon-marker';
-import { markers, mapConfig } from '../../helper/utils'
+import { mapConfig } from '../../helper/utils'
+import axios from 'axios';
 
-
+const URL_MARKERS = 'http://localhost:3020/api/gestaoFretes/markers'
 const getProvider = (x, y, z) => `https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/${z}/${x}/${y}.png`;
+  //Latitude e longitude dos marcadores, incluir dinamicamente de acordo com ultimas entregas
+const markers = [
+    {
+      name: 'Jaragua do sul',
+      latlng: [-26.4822, -49.0735]
+    }
+  ];
 
 class PigeonMaps extends PureComponent {
+  constructor(props) {
+    super(props)
+}
 
-  onMarkerClick(evt) {
-    console.log(evt.payload);
-  }
+componentWillMount() {
+  console.log('entra')
+  axios.get(URL_MARKERS)
+      .then(resp => console.log(resp.data))
+}
+
 
   render() {
     // create an array with marker components
