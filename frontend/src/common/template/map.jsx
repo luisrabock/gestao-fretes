@@ -3,10 +3,11 @@
 import React, { PureComponent } from 'react';
 import Map from 'pigeon-maps';
 import Marker from 'pigeon-marker';
-import { mapConfig } from '../../helper/utils'
+import { replaceSpaces, mapConfig } from '../../helper/utils'
 import axios from 'axios';
 
-const URL_MARKERS = 'http://localhost:3020/api/gestaoFretes/markers'
+const URL_MARKERS = 'http://localhost:3020/api/gestaoFretes/markers';
+const URL_GEO = 'https://maps.googleapis.com/maps/api/geocode/json?address='
 const getProvider = (x, y, z) => `https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/${z}/${x}/${y}.png`;
   //Latitude e longitude dos marcadores, incluir dinamicamente de acordo com ultimas entregas
 const markers = [
@@ -16,16 +17,20 @@ const markers = [
     }
   ];
 
+let cidades = [];
 class PigeonMaps extends PureComponent {
   constructor(props) {
     super(props)
 }
 
 componentWillMount() {
-  console.log('entra')
   axios.get(URL_MARKERS)
-      .then(resp => console.log(resp.data))
+      .then(resp => resp.data.forEach(element => {
+          cidades.push(element.destino)
+      }))
+      console.log(cidades)
 }
+
 
 
   render() {
