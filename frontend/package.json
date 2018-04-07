@@ -75,6 +75,8 @@
     "pigeon-marker": "^0.3.3",
     "prop-types": "^15.6.1",
     "react": "^15.6.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-file-reader": "^1.1.4",
+    "react-file-reader-input": "^1.1.4"
   }
 }

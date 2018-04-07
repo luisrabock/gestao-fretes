@@ -8,6 +8,7 @@ class Ocorren extends Component {
         return (
             <div>
                 <ContentHeader title='Upload de arquivo OCORREN'/>
+                <br />
                 <Content />
             </div>
         )

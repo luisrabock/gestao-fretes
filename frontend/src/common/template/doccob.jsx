@@ -8,6 +8,7 @@ class Doccob extends Component {
         return (
             <div>
                 <ContentHeader title='Upload de arquivo Doccob'/>
+                <br />
                 <Content />
             </div>
         )

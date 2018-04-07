@@ -8,6 +8,7 @@ class Notfis extends Component {
         return (
             <div>
                 <ContentHeader title='Upload de arquivo NOTFIS'/>
+                <br />
                 <Content />
             </div>
         )
