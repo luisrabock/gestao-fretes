@@ -1,36 +1,47 @@
 import React from 'react'
-import IconButton from '../template/iconButton'
+import moment from 'moment'
+import Grid from '../common/layout/grid'
+
 
 export default props => {
 
-    const renderRows = () => {
-        const list = props.list || []
-        return list.map(todo => (
-            <tr key={todo._id}>
-                <td className={todo.done ? 'markedAsDone' : ''}>{todo.description}</td>
-                <td>
-                    <IconButton style='success' icon='check' hide={todo.done}
-                        onClick={() => props.handleMarkAsDone(todo)}></IconButton>
-                    <IconButton style='warning' icon='undo' hide={!todo.done} 
-                        onClick={() => props.handleMarkAsPending(todo)}></IconButton>
-                    <IconButton style='danger' icon='trash-o' hide={!todo.done} 
-                        onClick={() => props.handleRemove(todo)}></IconButton>
-                </td>
-            </tr>
-        ))
-    }
+  const renderRows = () => {
+    const list = props.list || []
+    return list.map(doc => (
+      <tbody key={doc._id}>
+        <tr>
+            <td >{doc.nota}</td>
+            <td>{doc.serie}</td>
+            <td>{doc.cgc}</td>
+            <td>{moment(doc.emissao).format('MM/DD/YYYY')}</td>
+            <td>{moment(doc.embarque).format('MM/DD/YYYY')}</td>
+            <td>{moment(doc.previsao).format('MM/DD/YYYY')}</td>
+            <td>{doc.estadoDest}</td>
+            <td>{doc.cidadeDest}</td>
+            <td>{doc.situacao} <small className="label label-danger"><i className="fa fa-clock-o"></i>1 dia</small></td>
+        </tr>
+      </tbody>
+    ))
+}
 
     return (
-        <table className='table'>
-            <thead>
+      <Grid cols='12 9 10'>
+        <table className='table table-bordered table-hover'>
+            <thead className='thead-dark'>
                 <tr>
-                    <th>Descrição</th>
-                    <th className='tableActions'>Ações</th>
+                    <th>Nota</th>
+                    <th>Serie</th>
+                    <th>CNPJ</th>
+                    <th>Emissao</th>
+                    <th>Embarque</th>
+                    <th>Previsão</th>
+                    <th>UF</th>
+                    <th>Cidade</th>
+                    <th>Situação</th>
                 </tr>
             </thead>
-            <tbody>
-                {renderRows()}
-            </tbody>
+          {renderRows()}
         </table>
+      </Grid>
     )
 }

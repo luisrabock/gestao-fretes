@@ -19,6 +19,17 @@ button {
 .skin-blue .main-header .logo {
     background-color: #34495e!important;
 }
+.skin-blue .table-bordered  {
+  background: #34495e;
+}
+
+.skin-blue .main-header .logo {
+    background-color: #34495e!important;
+}
+.skin-blue .table {
+  background:#fff
+}
+
 #root, #app, #map {
   height: 100%;
 }
@@ -31,3 +42,5 @@ button {
 #map {
   margin-left: 200px;
 }
+
+
