@@ -9,11 +9,13 @@ import Ocorren from '../common/template/ocorren';
 import Prefat from '../common/template/prefat';
 import Doccob from '../common/template/doccob';
 import Individual from '../common/template/individual';
+import Dashboard from '../deliveries/dashboard';
 
 
 export default (props) => (
   <Router history={hashHistory}>
-        <Route path='/' component={Home} />
+       <Route path='/' component={Home} />
+       <Route path='/dashboard' component={Dashboard} />
        <Route path='/notfis' component={Notfis} />
        <Route path='/conemb' component={Conemb} />
        <Route path='/ocorren' component={Ocorren} />
