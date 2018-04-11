@@ -4,7 +4,10 @@ export const mapConfig = {
   zoom: 6
 };
 
-export const replaceSpaces = (city) => {
-  return city.replace(/ /g, "+")
-};
-
+export const markers = [
+  {
+    //
+    name: 'Jaragua do sul',
+    latlng: [-26.4822, -49.0735]
+  }
+];

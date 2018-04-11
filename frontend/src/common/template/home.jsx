@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import ContentHeader from '../template/contentHeader';
 import Content from '../template/content';
 import InfoBox from '../template/infoBox';
-import Map from './map';
+import Map from '../../map/map';
 
 
 class Home extends Component {

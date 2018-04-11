@@ -7,10 +7,11 @@ class Conemb extends Component {
     render() {
         return (
             <div>
+                <section>
                 <ContentHeader title='Upload de arquivo CONEMB'/>
                 <br />
                 <Content />
-
+                </section>
             </div>
         )
     }

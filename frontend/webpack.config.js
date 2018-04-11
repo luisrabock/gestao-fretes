@@ -31,7 +31,6 @@ module.exports = {
     loaders: [{
       test: /.js[x]?$/,
       loader: 'babel-loader',
-      loaders: ["jsx-loader?insertPragma=React.DOM&harmony"],
       exclude: /node_modules/,
       query: {
         presets: ['es2015', 'react', "stage-0"],
