@@ -7,7 +7,7 @@ export default () => (
       <span className='logo-mini'><b>G</b>F</span>
       <span className='logo-lg'>
           <i className='fa fa-bar-chart'> </i>
-          <b> Gestao</b> de Fretes
+          <b> GestFrete</b>
       </span>
   </a>
   <nav className='navbar navbar-static-top'>

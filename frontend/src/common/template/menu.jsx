@@ -6,7 +6,9 @@ import MenuTree from './menuTree';
 export default () => (
   <ul className='sidebar-menu'>
   <MenuItem path='#' label='Entregas' icon='truck'/>
-  <MenuItem path='#' label='Valores' icon='money'/>
+  <MenuItem path='#' label='Auditoria' icon='search'/>
+  <MenuItem path='#' label='Simulação' icon='calculator'/>
+  <MenuItem path='#' label='Dashboards' icon='tachometer'/>
   <MenuTree label='Cadastro' icon='edit'>
     <MenuItem path='#/notfis' label='Arquivo NOTFIS' icon='plus-circle' />
     <MenuItem path='#/conemb' label='Arquivo CONEMB' icon='plus-circle' />
