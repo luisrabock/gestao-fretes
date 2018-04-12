@@ -17,10 +17,8 @@ class Home extends Component {
         <InfoBox icon='bg-yellow'icons='percent' title='Percentual do mês' value='2.25'/>
         </div>
         <div className='row'>
-        <div style={{width: '100%', height: '400px'}}>
         <Map />
         
-        </div>
         </div>
      </section>
         )

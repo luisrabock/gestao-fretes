@@ -44,3 +44,12 @@ button {
 }
 
 
+
+body{
+  padding-bottom:40px;
+}
+
+.todoForm {
+  width: 70%;
+}
+

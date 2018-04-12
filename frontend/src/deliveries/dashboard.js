@@ -6,6 +6,7 @@ import DashboardForm from './dashboardForm';
 import DashboardData from './dashboardData';
 
 
+
 const URL = 'http://localhost:3000/data';
 
 export default class Dashboard extends Component {
@@ -25,17 +26,18 @@ export default class Dashboard extends Component {
     }
 
     handleChange(e) {
-      console.log(e)
       this.setState({ nota: e.target.value })
   }
         render() {
             return (
-                <div>
+                <section className='content'>
                     <DashboardHeader name='Dashboard' small=' Entregas'></DashboardHeader>
                     <DashboardForm nota={this.state.nota}
                     handleChange={this.handleChange}/>
-                    <DashboardData list={this.state.list}/>
-                </div>
+                    <div className='row'>
+                    <DashboardData list={this.state.list} handleChange={this.handleChange} nota={this.state.nota}/>
+                    </div>
+                </section>
             )
         }
 }
