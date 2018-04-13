@@ -15,10 +15,11 @@ export default props => {
             <td>{doc.cgc}</td>
             <td>{moment(doc.emissao).format('DD/MM/YYYY')}</td>
             <td>{moment(doc.embarque).format('DD/MM/YYYY')}</td>
-            <td>{moment(doc.previsao).format('DD/MM/YYYY')} <small className={doc.prazo > 0 ? 'label label-danger' : 'label label-success'}><i className="fa fa-clock-o"></i> {doc.prazo}</small></td>
+            <td>{moment(doc.previsao).format('DD/MM/YYYY')} <small className={doc.status > 0 ? 'label label-danger' : 'label label-success'}>
+            <i className="fa fa-clock-o"></i>{doc.status > 0 ? doc.status : ''}</small></td>
             <td>{doc.estadoDest}</td>
             <td>{doc.cidadeDest}</td>
-            <td><span className='label label-warning'>{doc.situacao}</span></td>
+            <td><span className={doc.cor == true ? 'label label-success' : 'label label-danger'}>{doc.situacao}</span></td>
         </tr>
       </tbody>
     ))
