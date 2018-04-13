@@ -43,13 +43,18 @@ button {
   margin-left: 200px;
 }
 
-
-
 body{
   padding-bottom:40px;
 }
 
 .todoForm {
   width: 50%;
+}
+
+.teste {
+  background-position:center;
+  display: flex;
+  align-items:center;
+  justify-content:center;
 }
 

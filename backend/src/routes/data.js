@@ -20,6 +20,19 @@ router.get('/', (req, res, next) => {
         });
 });
 
+router.get('/data', (req, res, next) => {
+    Data.find({entrega: false})
+        .then(docs => {
+            res.status(200).json(docs);
+        })
+        .catch(err => {
+            res.status(500).json({
+                message: `Problem with data structure: ${err}`,
+                Error: err
+            });
+        });
+});
+
 //vai precisar fazer uma funcao que trata o array de teste e separa os dados
 
 //Previsao de entrega precisa de uma funcao que recebe transp e estado e devolve prazo
@@ -31,6 +44,7 @@ router.post('/', (req, res, next) => {
                     nota: req.body.nota,
                     serie: req.body.serie,
                     cgc: req.body.cgc,
+                    cgcTransp: req.body.cgcTransp,
                     emissao: req.body.emissao,
                     embarque: req.body.embarque,
                     previsao: req.body.previsao,
@@ -91,8 +105,9 @@ router.get('/nota/:nota', (req, res, next) => {
 router.patch("/:dataId", (req, res, next) => {
     const id = req.params.dataId;
     const updateOps = {};
-
-    for (const ops of req.body) {
+    console.log('entra')
+    console.log(req.body.payload)
+    for (const ops of req.body.payload) {
       updateOps[ops.propName] = ops.value;
     }
     Data.update({ _id: id }, { $set: updateOps })
@@ -119,10 +134,10 @@ router.patch("/:dataId", (req, res, next) => {
     const updateOps = {};
     for (const ops of req.body) {
         if(ops.propName == 'cod') {
-            updateOps.cor = findColor(ops.propName)
+            updateOps.cor = findColor(ops.value)
         }
         if(ops.propName == 'cod') {
-            updateOps.entrega = findDeliery(ops.propName)
+            updateOps.entrega = findDeliery(ops.value)
         }
       updateOps[ops.propName] = ops.value;
     }   

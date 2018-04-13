@@ -1,6 +1,8 @@
 import React from 'react'
 import moment from 'moment'
+
 import Grid from '../common/layout/grid'
+import IconButton from '../common/layout/iconButton';
 
 
 export default props => {
@@ -15,12 +17,17 @@ export default props => {
             <td>{doc.cgc}</td>
             <td>{moment(doc.emissao).format('DD/MM/YYYY')}</td>
             <td>{moment(doc.embarque).format('DD/MM/YYYY')}</td>
-            <td>{moment(doc.previsao).format('DD/MM/YYYY')} <small className={doc.status > 0 ? 'label label-danger' : 'label label-success'}>
-            <i className="fa fa-clock-o"></i>{doc.status > 0 ? doc.status : ''}</small></td>
+            <td>{moment(doc.previsao).format('DD/MM/YYYY')} <small className={doc.prazo > 0 ? 'label label-danger' : 'label label-success'}>
+            <i className="fa fa-clock-o"></i> {doc.prazo > 0 ? doc.prazo : ''}</small></td>
             <td>{doc.estadoDest}</td>
             <td>{doc.cidadeDest}</td>
-            <td><span className={doc.cor == true ? 'label label-success' : 'label label-danger'}>{doc.situacao}</span></td>
+            <td>{doc.cgcTransp}</td>
+            <td><span className={doc.cor == true ? 'label label-success' : 'label label-danger'}>{doc.ocorrencia}</span></td>
+            <td><span className='teste'><IconButton style='warning' icon='undo'
+            onClick={() => props.markAsDone(doc)}
+                ></IconButton></span></td>
         </tr>
+        
       </tbody>
     ))
 }
@@ -38,7 +45,9 @@ export default props => {
                     <th>Previsão</th>
                     <th>UF</th>
                     <th>Cidade</th>
+                    <th>Transportadora</th>
                     <th>Ocorrencias</th>
+                    <th>Liberação de nota</th>
                 </tr>
             </thead>
           {renderRows()}

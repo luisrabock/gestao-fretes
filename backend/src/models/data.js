@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
+const uniqueValidator = require('mongoose-unique-validator');
 
 const dataSchema = mongoose.Schema({
-    nota: Number,
+    nota: {type: Number, unique: true, index:true, dropDups:true},
     serie: String,
     cgc: Number,
     cgcTransp: Number,
@@ -18,8 +19,9 @@ const dataSchema = mongoose.Schema({
     coordenadas: Array,
     ocorrencia: {type: String, default: 'Aguardando atualização'},
     codOcorr: Number,
-    cor: Boolean,
-    entrega: Boolean
+    cor: {type: Boolean, default: true},
+    entrega: {type: Boolean, default: false}
 });
 
+dataSchema.plugin(uniqueValidator);
 module.exports = mongoose.model('data', dataSchema);

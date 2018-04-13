@@ -20,15 +20,18 @@ module.exports = {
 
 //function returns color to render data table
     findColor: (cod) => {
-        if(cod !== 0 && cod !== 91 && cod !== 24 && cod !== 31 && cod !== 1 && cod !== 2) {
-            return false
-        } else {
+        if(cod == '0' || cod == 91 || cod == 24 || cod == 31 || cod == 1 || cod == 2) {
+            console.log('entraif')
             return true
+        } else {
+            console.log(cod)
+            console.log('entra')
+            return false
         }
     },
-    //function returns color to render data table
+    //function returns delivery true or false
     findDeliery: (cod) => {
-        if(cod !== 1 && cod !== 2 && cod !== 24 && cod !== 31) {
+        if(cod == 1 || cod == 2 || cod == 24 || cod == 31) {
             return true
         } else {
             return false
