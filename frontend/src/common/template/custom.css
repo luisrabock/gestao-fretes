@@ -27,7 +27,8 @@ button {
     background-color: #34495e!important;
 }
 .skin-blue .table {
-  background:#fff
+  background:#fff;
+  width:100%
 }
 
 #root, #app, #map {
@@ -56,5 +57,9 @@ body{
   display: flex;
   align-items:center;
   justify-content:center;
+}
+
+.testetab {
+  padding: 50px!important;
 }
 

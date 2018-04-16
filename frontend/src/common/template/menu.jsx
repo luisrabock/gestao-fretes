@@ -9,7 +9,7 @@ export default () => (
   <MenuItem path='#' label='Auditoria' icon='search'/>
   <MenuItem path='#' label='Simulação' icon='calculator'/>
   <MenuItem path='#' label='Dashboards' icon='tachometer'/>
-  <MenuItem path='#' label='Notas fiscais' icon='file-o'/>
+  <MenuItem path='#/notas' label='Notas fiscais' icon='file-o'/>
 
   <MenuTree label='Cadastro' icon='edit'>
     <MenuItem path='#/notfis' label='Arquivo NOTFIS' icon='plus-circle' />

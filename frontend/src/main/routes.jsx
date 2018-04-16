@@ -10,6 +10,7 @@ import Prefat from '../common/template/prefat';
 import Doccob from '../common/template/doccob';
 import Individual from '../common/template/individual';
 import Dashboard from '../deliveries/dashboard';
+import Grid from '../deliveries.1/gridNf';
 
 
 export default (props) => (
@@ -22,6 +23,7 @@ export default (props) => (
        <Route path='/prefat' component={Prefat} />
        <Route path='/doccob' component={Doccob} />
        <Route path='/individual' component={Individual} />
+       <Route path='/notas' component={Grid} />
        <Redirect from ='*' to='/' />
   </Router>
 );

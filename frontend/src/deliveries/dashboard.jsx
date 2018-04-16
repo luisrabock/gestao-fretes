@@ -66,11 +66,9 @@ export default class Dashboard extends Component {
                     handleSearch={this.handleSearch}
                     handleClear={this.handleClear}
                     />
-                    <div className='row'>
                     <DashboardData list={this.state.list} handleChange={this.handleChange} nota={this.state.nota}
                     markAsDone={this.markAsDone}
                     />
-                    </div>
                 </section>
             )
         }

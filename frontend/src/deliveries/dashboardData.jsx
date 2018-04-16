@@ -7,6 +7,7 @@ import IconButton from '../common/layout/iconButton';
 
 export default props => {
 
+
   const renderRows = () => {
     const list = props.list || []
     return list.map(doc => (
@@ -33,7 +34,7 @@ export default props => {
 }
 
     return (
-      <Grid cols='12 9 10'>
+      <Grid cols='12 9 12'>
         <table className='table table-bordered table-hover table-striped'>
             <thead>
                 <tr>

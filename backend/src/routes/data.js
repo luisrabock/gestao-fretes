@@ -105,8 +105,6 @@ router.get('/nota/:nota', (req, res, next) => {
 router.patch("/:dataId", (req, res, next) => {
     const id = req.params.dataId;
     const updateOps = {};
-    console.log('entra')
-    console.log(req.body.payload)
     for (const ops of req.body.payload) {
       updateOps[ops.propName] = ops.value;
     }
