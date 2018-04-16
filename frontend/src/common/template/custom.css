@@ -63,3 +63,8 @@ body{
   padding: 50px!important;
 }
 
+.table1 {
+  overflow: auto!important;
+  display: block!important;
+  table-layout: auto!important;
+  }
