@@ -33,6 +33,19 @@ router.get('/data', (req, res, next) => {
         });
 });
 
+router.get('/markers', (req, res, next) => {
+    Data.find({entrega: false})
+        .then(docs => {
+            res.status(200).json(docs);
+        })
+        .catch(err => {
+            res.status(500).json({
+                message: `Problem with data structure: ${err}`,
+                Error: err
+            });
+        });
+});
+
 //vai precisar fazer uma funcao que trata o array de teste e separa os dados
 
 //Previsao de entrega precisa de uma funcao que recebe transp e estado e devolve prazo
@@ -177,3 +190,4 @@ router.delete('/:dataId', (req, res, next) => {
 });
 
 module.exports = router;
+

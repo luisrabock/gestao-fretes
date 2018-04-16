@@ -6,14 +6,21 @@ import Marker from 'pigeon-marker';
 import {  mapConfig, markers } from '../helper/utils'
 import axios from 'axios';
 
+const URL_MARKERS = 'http://localhost:3000/data/markers';
+
 const getProvider = (x, y, z) => `https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/${z}/${x}/${y}.png`;
   //Latitude e longitude dos marcadores, incluir dinamicamente de acordo com ultimas entregas
 
 class PigeonMaps extends PureComponent {
   constructor(props) {
     super(props)
+    this.state = {markers: []}
 }
-
+/*
+componentWillMount() {
+  data.call(this);
+}
+*/
   render() {
     // create an array with marker components
     const PigeonMarkers = markers.map(marker => (

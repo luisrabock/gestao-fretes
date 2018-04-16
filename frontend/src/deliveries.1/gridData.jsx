@@ -1,230 +1,107 @@
 import BootstrapTable from 'react-bootstrap-table-next';
 import React, { Component } from 'react';
-import Grid from '../common/layout/grid'
-
-var products = [{
-  id: 1,
-  name: "Product1",
-  price: 120,
-  ovos: 100,
-  ovos1: 100,
-  ovos2: 100,
-  ovos3: 100,
-  ovos4: 100,
-  ovos5: 100,
-  ovos6: 100,
-  ovos7: 100,
-  ovos8: 100,
-  ovos9: 100,
-  ovos10: 100,
-  ovos11: 100,
-  ovos12: 100,
-  ovos13: 100,
-  ovos14: 100,
-  ovos15: 100
-}, {
-  id: 2,
-  name: "Product2",
-  price: 80,
-  ovos: 100,
-  ovos1: 100,
-  ovos2: 100,
-  ovos3: 100,
-  ovos4: 100,
-  ovos5: 100,
-  ovos6: 100,
-  ovos7: 100,
-  ovos8: 100,
-  ovos9: 100,
-  ovos10: 100,
-  ovos11: 100,
-  ovos12: 100,
-  ovos13: 100,
-  ovos14: 100,
-  ovos15: 100
-},{
-  id: 3,
-  name: "Product3",
-  price: 200,
-  ovos: 100,
-  ovos1: 100,
-  ovos2: 100,
-  ovos3: 100,
-  ovos4: 100,
-  ovos5: 100,
-  ovos6: 100,
-  ovos7: 100,
-  ovos8: 100,
-  ovos9: 100,
-  ovos10: 100,
-  ovos11: 100,
-  ovos12: 100,
-  ovos13: 100,
-  ovos14: 100,
-  ovos15: 100
-},{
-  id: 4,
-  name: "Product4",
-  price: 500,
-  ovos: 100,
-  ovos1: 100,
-  ovos2: 100,
-  ovos3: 100,
-  ovos4: 100,
-  ovos5: 100,
-  ovos6: 100,
-  ovos7: 100,
-  ovos8: 100,
-  ovos9: 100,
-  ovos10: 100,
-  ovos11: 100,
-  ovos12: 100,
-  ovos13: 100,
-  ovos14: 100,
-  ovos15: 100
-},{
-  id: 5,
-  name: "Product5",
-  price: 80,
-  ovos: 100,
-  ovos1: 100,
-  ovos2: 100,
-  ovos3: 100,
-  ovos4: 100,
-  ovos5: 100,
-  ovos6: 100,
-  ovos7: 100,
-  ovos8: 100,
-  ovos9: 100,
-  ovos10: 100,
-  ovos11: 100,
-  ovos12: 100,
-  ovos13: 100,
-  ovos14: 100,
-  ovos15: 100
-},{
-  id: 6,
-  name: "Product6",
-  price: 80,
-  ovos: 100,
-  ovos1: 100,
-  ovos2: 100,
-  ovos3: 100,
-  ovos4: 100,
-  ovos5: 100,
-  ovos6: 100,
-  ovos7: 100,
-  ovos8: 100,
-  ovos9: 100,
-  ovos10: 100,
-  ovos11: 100,
-  ovos12: 100,
-  ovos13: 100,
-  ovos14: 100,
-  ovos15: 100
-},{
-  id: 7,
-  name: "Product7",
-  price: 80,
-  ovos: 100,
-  ovos1: 100,
-  ovos2: 100,
-  ovos3: 100,
-  ovos4: 100,
-  ovos5: 100,
-  ovos6: 100,
-  ovos7: 100,
-  ovos8: 100,
-  ovos9: 100,
-  ovos10: 100,
-  ovos11: 100,
-  ovos12: 100,
-  ovos13: 100,
-  ovos14: 100,
-  ovos15: 100
-}];
+import Grid from '../common/layout/grid';
+import IconButton from '../common/layout/iconButton';
+import moment from 'moment';
+import overlayFactory from 'react-bootstrap-table2-overlay';
 
 
 const columns = [{
-  dataField: 'id',
-  text: 'Product',
+  dataField: 'nota',
+  text: 'Nota',
   sort: true,
-  headerStyle: (colum, colIndex) => {
-    return { width: '200px' };
-  }
+  headerTitle: true
+
 }, {
-  dataField: 'name',
-  text: 'Product Name',
-  sort: true,
-  headerStyle: (colum, colIndex) => {
-    return { width: '200px', background: 'green'};
-  }
+  dataField: 'serie',
+  text: 'Série'
+
 }, {
-  dataField: 'price',
-  text: 'Product Price',
+  dataField: 'cgc',
+  text: 'CNPJ',
   sort: true,
-  headerStyle: (colum, colIndex) => {
-    return { width: '200px'};
-  }
-},{
-  dataField: 'ovos',
-  text: 'Product Price1',
+
+},
+{
+  dataField: 'cgcTransp',
+  text: 'Transportador',
   sort: true,
-  headerStyle: (colum, colIndex) => {
-    return { width: '200px'};
+
+},
+{
+  dataField: 'peso',
+  text: 'Peso',
+
+},{
+  dataField: 'volumes',
+  text: 'Volumes',
+},{
+  dataField: 'emissao',
+  text: 'Emissao',
+  sort: true,
+
+},{
+  dataField: 'embarque',
+  text: 'Embarque',
+  sort: true,
+
+},{
+  dataField: 'previsao',
+  text: 'Previsão',
+  sort: true,
+
+},{
+  dataField: 'estado',
+  text: 'Estado',
+  sort: true,
+
+},{
+  dataField: 'cidade',
+  text: 'Cidade',
+  sort: true,
+
+},{
+  dataField: 'estadoDest',
+  text: 'Estado Destino',
+  sort: true,
+
+},{
+  dataField: 'cidadeDest',
+  text: 'Cidade Destino',
+  sort: true,
+
+},{
+  dataField: 'entrega',
+  text: 'Entrega',
+  sort: true,
+},{
+  dataField: 'rollback',
+  text: 'Rollback',
+}
+];
+
+export default (props) => {
+
+  const renderRows = () => {
+    let products = []
+    const notes = props.notes || []
+      notes.map(doc => (
+      products.push({nota: doc.nota, serie: doc.serie, cgc: doc.cgc,
+         cgcTransp: doc.cgcTransp,peso: doc.peso, volumes: doc.volumes,
+          emissao: moment(doc.emissao).format('DD/MM/YYYY'), embarque: moment(doc.embarque).format('DD/MM/YYYY'),
+          previsao: moment(doc.previsao).format('DD/MM/YYYY'), estado: doc.estado,
+          cidade: doc.cidade, estadoDest: doc.estadoDest, cidadeDest: doc.cidadeDest,
+          entrega: doc.entrega == true ? 'Entregue' : 'Pendente' , rollback: doc.entrega == true ? <IconButton style='success' icon='plus' /> : ''})
+    ))
+    return products
   }
-},{
-  dataField: 'ovos1',
-  text: 'Product Price1',
-  headerStyle: (colum, colIndex) => {
-    return { width: '200px'};
-  }
-},{
-  dataField: 'ovos2',
-  text: 'Product Price1'
-},{
-  dataField: 'ovos3',
-  text: 'Product Price1'
-},{
-  dataField: 'ovos4',
-  text: 'Product Price1'
-},{
-  dataField: 'ovos5',
-  text: 'Product Price1'
-},{
-  dataField: 'ovos6',
-  text: 'Product Price1'
-},{
-  dataField: 'ovos7',
-  text: 'Product Price1'
-},{
-  dataField: 'ovos8',
-  text: 'Product Price1'
-},{
-  dataField: 'ovos9',
-  text: 'Product Price1'
-},{
-  dataField: 'ovos10',
-  text: 'Product Price1'
-},{
-  dataField: 'ovos11',
-  text: 'Product Price1'
-},{
-  dataField: 'ovos12',
-  text: 'Product Price1'
-},{
-  dataField: 'ovos13',
-  text: 'Product Price1'
-},{
-  dataField: 'ovos14',
-  text: 'Product Price1'
-},{
-  dataField: 'ovos15',
-  text: 'Product Price1'
-}];
- 
-export default () => (
+
+  return (
   <div className='table1'>
-  <BootstrapTable keyField='id' data={ products } columns={ columns } />
+  <BootstrapTable classname='table1 table' keyField='id' data={ renderRows() } columns={ columns }  
+  />
   </div>
-)
+  )
+}
+
+
