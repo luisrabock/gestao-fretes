@@ -2,9 +2,9 @@
 
 import React, { PureComponent } from 'react';
 import Map from 'pigeon-maps';
-import Marker from 'pigeon-marker';
-import {  mapConfig, markers } from '../helper/utils'
+import {  mapConfig } from '../helper/utils'
 import axios from 'axios';
+import Marker from 'pigeon-marker';
 
 const URL_MARKERS = 'http://localhost:3000/data/markers';
 
@@ -14,33 +14,39 @@ const getProvider = (x, y, z) => `https://cartodb-basemaps-a.global.ssl.fastly.n
 class PigeonMaps extends PureComponent {
   constructor(props) {
     super(props)
-    this.state = {markers: []}
+    this.state = {markers: [] }
+
+
 }
-/*
-componentWillMount() {
-  data.call(this);
+
+componentDidMount() {
+  axios.get(`${URL_MARKERS}`)
+    .then(res => {
+      const markers = res.data;
+      this.setState({ markers });
+    })
 }
-*/
+
   render() {
     // create an array with marker components
-    const PigeonMarkers = markers.map(marker => (
-      <Marker key={`marker_${marker.name}`} anchor={marker.latlng} payload={marker.name} onClick={this.onMarkerClick} />
-    ));
 
     return (
-      <div className="map">
-        <Map
-          width={window.innerWidth}
-          height={600}
-          defaultCenter={mapConfig.center}
-          defaultZoom={mapConfig.zoom}
-          provider={getProvider}
-        >
-          {PigeonMarkers}
-        </Map>
-      </div>
-    );
+    <div className="map">
+      <Map
+        width={window.innerWidth}
+        height={600}
+        defaultCenter={mapConfig.center}
+        defaultZoom={mapConfig.zoom}
+        provider={getProvider}>
+      { this.state.markers.map(doc => <Marker anchor={doc.coordenadas}/>)}
+      </Map>
+    </div>
+      
+
+    )
   }
 }
 
 export default PigeonMaps;
+
+
