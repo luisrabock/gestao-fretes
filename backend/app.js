@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 
 const dataRoutes = require('./src/routes/data');
 const locationRoutes = require('./src/routes/locations');
-const deadlineRoutes = require('./src/routes/deadline');
+const taxRoutes = require('./src/routes/tax');
 
 
 
@@ -27,7 +27,7 @@ app.use(cors());
 // Routes which should handle requests
 app.use("/data", dataRoutes);
 app.use("/locations", locationRoutes);
-app.use("/deadlines", deadlineRoutes);
+app.use("/tax", taxRoutes);
 
 
 //refactoring this soon
