@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import DashboardHeader from '../deliveries/dashboardHeader';
 import GridData from './gridData';
+import Row from '../common/layout/row';
 
 
 
@@ -23,7 +24,9 @@ export default class Dashboard1 extends Component {
         return (
             <section className='content'>
                 <DashboardHeader name='Dashboard' small=' Notas'></DashboardHeader>
+                <Row>
                 <GridData notes={this.state.notes} />
+                </Row>
             </section>
         )
     }

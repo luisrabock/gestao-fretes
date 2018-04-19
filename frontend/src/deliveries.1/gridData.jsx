@@ -1,107 +1,56 @@
-import BootstrapTable from 'react-bootstrap-table-next';
 import React, { Component } from 'react';
+import moment from 'moment';
+
 import Grid from '../common/layout/grid';
 import IconButton from '../common/layout/iconButton';
-import moment from 'moment';
-import overlayFactory from 'react-bootstrap-table2-overlay';
+import Small from '../common/template/button';
 
-
-const columns = [{
-  dataField: 'nota',
-  text: 'Nota',
-  sort: true,
-  headerTitle: true
-
-}, {
-  dataField: 'serie',
-  text: 'Série'
-
-}, {
-  dataField: 'cgc',
-  text: 'CNPJ',
-  sort: true,
-
-},
-{
-  dataField: 'cgcTransp',
-  text: 'Transportador',
-  sort: true,
-
-},
-{
-  dataField: 'peso',
-  text: 'Peso',
-
-},{
-  dataField: 'volumes',
-  text: 'Volumes',
-},{
-  dataField: 'emissao',
-  text: 'Emissao',
-  sort: true,
-
-},{
-  dataField: 'embarque',
-  text: 'Embarque',
-  sort: true,
-
-},{
-  dataField: 'previsao',
-  text: 'Previsão',
-  sort: true,
-
-},{
-  dataField: 'estado',
-  text: 'Estado',
-  sort: true,
-
-},{
-  dataField: 'cidade',
-  text: 'Cidade',
-  sort: true,
-
-},{
-  dataField: 'estadoDest',
-  text: 'Estado Destino',
-  sort: true,
-
-},{
-  dataField: 'cidadeDest',
-  text: 'Cidade Destino',
-  sort: true,
-
-},{
-  dataField: 'entrega',
-  text: 'Entrega',
-  sort: true,
-},{
-  dataField: 'rollback',
-  text: 'Rollback',
-}
-];
 
 export default (props) => {
-
-  const renderRows = () => {
-    let products = []
+  const makeRows = () => {
     const notes = props.notes || []
-      notes.map(doc => (
-      products.push({nota: doc.nota, serie: doc.serie, cgc: doc.cgc,
-         cgcTransp: doc.cgcTransp,peso: doc.peso, volumes: doc.volumes,
-          emissao: moment(doc.emissao).format('DD/MM/YYYY'), embarque: moment(doc.embarque).format('DD/MM/YYYY'),
-          previsao: moment(doc.previsao).format('DD/MM/YYYY'), estado: doc.estado,
-          cidade: doc.cidade, estadoDest: doc.estadoDest, cidadeDest: doc.cidadeDest,
-          entrega: doc.entrega == true ? 'Entregue' : 'Pendente' , rollback: doc.entrega == true ? <IconButton style='success' icon='plus' /> : ''})
+    return notes.map(doc => (
+      <tbody key={doc._id}>
+        <tr>
+            <td >{doc.nota}</td>
+            <td>{doc.serie}</td>
+            <td>{doc.cgcTransp}</td>
+            <td >{doc.volumes}</td>
+            <td>{moment(doc.emissao).format('DD/MM/YYYY')}</td>
+            <td>{moment(doc.embarque).format('DD/MM/YYYY')}</td>
+            <td>{moment(doc.previsao).format('DD/MM/YYYY')}</td>
+            <td >{doc.estado}</td>
+            <td>{doc.cidade}</td>
+            <td>{doc.estadoDest}</td>
+            <td >{doc.cidadeDest}</td>
+            <td >{doc.entrega == true ? <Small className='teste' classe='success' icone='check'/> : <Small classe='danger' icone='close'/> }</td>
+        </tr>
+      </tbody>
     ))
-    return products
-  }
-
-  return (
-  <div className='table1'>
-  <BootstrapTable classname='table1 table' keyField='id' data={ renderRows() } columns={ columns }  
-  />
-  </div>
-  )
 }
-
-
+return (
+  <div className='content'>
+  <Grid cols='12 9 12'>
+    <table className='table table-bordered table-hover table-striped'>
+        <thead>
+            <tr>
+                <th>Nota</th>
+                <th>Serie</th>
+                <th>Transportador</th>
+                <th>Volumes</th>
+                <th>Emissão</th>
+                <th>Embarque</th>
+                <th>Previsão</th>
+                <th>Estado</th>
+                <th>Cidade</th>
+                <th>Estado Destino</th>
+                <th>Cidade Destino</th>
+                <th>Entrega</th>
+            </tr>
+        </thead>
+      {makeRows()}
+    </table>
+  </Grid>
+  </div>
+)
+}

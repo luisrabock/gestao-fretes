@@ -11,6 +11,7 @@ import Doccob from '../common/template/doccob';
 import Individual from '../common/template/individual';
 import Dashboard from '../deliveries/dashboard';
 import Grid from '../deliveries.1/gridNf';
+import Tax from '../tax/taxMain';
 
 
 export default (props) => (
@@ -24,6 +25,7 @@ export default (props) => (
        <Route path='/doccob' component={Doccob} />
        <Route path='/individual' component={Individual} />
        <Route path='/notas' component={Grid} />
+       <Route path='/tax' component={Tax} />
        <Redirect from ='*' to='/' />
   </Router>
 );
