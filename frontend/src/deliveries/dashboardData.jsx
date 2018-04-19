@@ -12,14 +12,14 @@ export default props => {
     const list = props.list || []
     return list.map(doc => (
       <tbody key={doc._id}>
-        <tr>
+        <tr className='text-center'>
             <td >{doc.nota}</td>
             <td>{doc.serie}</td>
             <td>{doc.cgc}</td>
             <td>{moment(doc.emissao).format('DD/MM/YYYY')}</td>
             <td>{moment(doc.embarque).format('DD/MM/YYYY')}</td>
-            <td>{moment(doc.previsao).format('DD/MM/YYYY')} <small className={doc.prazo > 0 ? 'label label-danger' : 'label label-success'}>
-            <i className="fa fa-clock-o"></i> {doc.prazo > 0 ? doc.prazo : ''}</small></td>
+            <td>{moment(doc.previsao).format('DD/MM/YYYY')} <small className={moment().diff(doc.previsao, 'days') > 0 ? 'label label-danger' : 'label label-success'}>
+            <i className="fa fa-clock-o"></i> {moment().diff(doc.previsao, 'days') > 0 ? moment().diff(doc.previsao, 'days') : ''}</small></td>
             <td>{doc.estadoDest}</td>
             <td>{doc.cidadeDest}</td>
             <td>{doc.cgcTransp}</td>
@@ -33,11 +33,12 @@ export default props => {
     ))
 }
 
+
     return (
       <Grid cols='12 9 12'>
         <table className='table table-bordered table-hover table-striped'>
             <thead>
-                <tr>
+                <tr className='text-center'>
                     <th className='data-sort'>Nota</th>
                     <th>Serie</th>
                     <th>CNPJ</th>

@@ -2,8 +2,10 @@ const mongoose = require('mongoose');
 
 const taxSchema = mongoose.Schema({
     transp: {type: Number},
-    orig: String,
-    destino: Number,
+    estadoOrig:String,
+    cidadeOrig: String,
+    estadoDest: String,
+    cidadeDest:String,
     previsao: Number,
     pedagio: Number,
     indice: Number,

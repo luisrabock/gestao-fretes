@@ -53,10 +53,13 @@ body{
 }
 
 .teste {
-  background-position:center;
-  display: flex;
-  align-items:center;
-  justify-content:center;
+  background-position:center!important;
+  display: flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  display:block!important;
+  text-align:center!important;
+  margin:0 auto!important;
 }
 
 .testetab {

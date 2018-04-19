@@ -11,7 +11,6 @@ const dataSchema = mongoose.Schema({
     emissao: Date,
     embarque: Date,
     previsao: Date,
-    prazo: Number,
     estado: String,
     cidade: String,
     estadoDest: String,

@@ -1,11 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
+const moment = require('moment');
 
 const Data = require('../models/data');
 const Location = require('../models/locations');
 const  {finDiff, findColor, findDeliery }  = require('../utils/utils');
 
+const startOfMonth = moment().startOf('month').format('YYYY-MM-DD hh:mm');
 
 router.get('/', (req, res, next) => {
     Data.find()
@@ -34,7 +36,7 @@ router.get('/data', (req, res, next) => {
 });
 
 router.get('/markers', (req, res, next) => {
-    Data.find({entrega: false})
+    Data.find({emissao: {$gt:startOfMonth}})
         .then(docs => {
             res.status(200).json(docs);
         })
@@ -58,10 +60,11 @@ router.post('/', (req, res, next) => {
                     serie: req.body.serie,
                     cgc: req.body.cgc,
                     cgcTransp: req.body.cgcTransp,
+                    peso:req.body.peso,
+                    volumes:req.body.volumes,
                     emissao: req.body.emissao,
                     embarque: req.body.embarque,
                     previsao: req.body.previsao,
-                    prazo: finDiff(req.body.previsao),
                     coordenadas: [result.latitude, result.longitude],
                     estado: req.body.estado,
                     cidade: req.body.cidade,

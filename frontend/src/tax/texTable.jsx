@@ -3,10 +3,14 @@ import Row from '../common/layout/row';
 import Grid from '../common/layout/grid';
 import IconButton from '../common/layout/iconButton';
 
+import Modal from 'react-awesome-modal';
+
+
+
 export default props => (
   <table className='table table-bordered table-hover'>
   <thead>
-      <tr>
+      <tr className='text-center'>
           <th>Transportadora</th>
           <th>Origem</th>
           <th>Destino</th>
@@ -29,7 +33,7 @@ export default props => (
       </tr>
   </thead>
   <tbody>
-    <tr>
+    <tr className='text-center'>
       <td>Mercurio</td>
       <td>Jaraguá do Sul</td>
       <td>Belo Horizonte</td>
@@ -48,7 +52,7 @@ export default props => (
       <td>16</td>
       <td>17</td>
       <td>18</td>
-      <td><IconButton style='warning' icon='undo'></IconButton></td>
+      <td><IconButton value='Open' style='warning' icon='undo'  onClick={() => props.openModal()}></IconButton></td>
     </tr>
   </tbody>
 </table>

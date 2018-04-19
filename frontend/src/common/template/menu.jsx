@@ -25,7 +25,7 @@ export default () => (
   </MenuTree>
   <MenuTree label='Prazos de entrega' icon='clock-o'>
     <MenuItem path='#' label='Cadastro' icon='plus-circle'/>
-    <MenuItem path='#' label='Consulta e edição' icon='search'/>
+    <MenuItem path='#/deadlines' label='Consulta e edição' icon='search'/>
   </MenuTree>
   <MenuItem path='#' label='Sobre' icon='info-circle'/>
   <MenuItem path='#' label='Dúvidas' icon='question-circle-o'/>

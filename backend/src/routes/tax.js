@@ -6,11 +6,7 @@ const Tax = require('../models/tax');
 router.get('/', (req, res, next) => {
     Tax.find()
         .then(docs => {
-            res.status(200).json({
-                message: `Successful get request`,
-                URL: `http://localhost:3000/tax`,
-                data: docs
-            })
+            res.status(200).json(docs)
         })
         .catch(err => {
             res.status(500).json({
@@ -21,10 +17,12 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-    const tax = new Deadline({
+    const tax = new Tax({
         transp: req.body.transp,
-        orig: req.body.orig,
-        destino: req.body.destino,
+        estadoOrig:req.body.estadoOrig,
+        cidadeOrig: req.body.cidadeOrig,
+        estadoDest: req.body.estadoDest,
+        cidadeDest:req.body.cidadeDest,
         previsao: req.body.previsao,
         pedagio: req.body.pedagio,
         indice: req.body.indice,
@@ -57,13 +55,13 @@ router.post('/', (req, res, next) => {
     })
 });
 
-router.get('/:taxId', (req, res, next) => {
-    const id = req.params.taxId;
-        Tax.findOne({_id: id })
+router.get('/:cidade', (req, res, next) => {
+    const cidade = req.params.cidade;
+        Tax.findOne({cidadeDest: cidade })
             .then(result => {
                 res.status(201).json({
                     message: `Successful getById request`,
-                    URL: `http://localhost:3000/tax${id}`,
+                    URL: `http://localhost:3000/tax${cidade}`,
                     data: result
                 })
             })
@@ -74,6 +72,8 @@ router.get('/:taxId', (req, res, next) => {
                 })
             })
 });
+
+
 
 router.patch("/:taxId", (req, res, next) => {
     const id = req.params.taxId;

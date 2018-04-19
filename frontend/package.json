@@ -78,6 +78,7 @@
     "pigeon-marker": "^0.3.3",
     "prop-types": "^15.6.1",
     "react": "^15.6.2",
+    "react-awesome-modal": "^2.0.3",
     "react-bootstrap-table": "^4.3.1",
     "react-bootstrap-table-next": "^0.1.8",
     "react-bootstrap-table2-overlay": "^0.1.1",

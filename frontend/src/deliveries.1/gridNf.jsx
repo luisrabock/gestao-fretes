@@ -13,8 +13,19 @@ export default class Dashboard1 extends Component {
     constructor(props) {
         super(props)
         this.state = {notes: [] };
+        this.markAsPending = this.markAsPending.bind(this);
         this.getNotas();
     }
+
+    markAsPending(nota) {
+      console.log('entra200')
+      var payload = [
+        {"propName": "entrega", "value": "false"}
+      ]
+      axios.patch(`${URL}${nota._id}`, { payload})
+            .then(resp => this.getNotas())
+    }
+  
 
     getNotas() {
       axios.get(`${URL}`)
@@ -25,7 +36,7 @@ export default class Dashboard1 extends Component {
             <section className='content'>
                 <DashboardHeader name='Dashboard' small=' Notas'></DashboardHeader>
                 <Row>
-                <GridData notes={this.state.notes} />
+                <GridData notes={this.state.notes} markAsPending={this.markAsPending} />
                 </Row>
             </section>
         )

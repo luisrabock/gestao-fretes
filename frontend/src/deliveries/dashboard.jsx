@@ -4,6 +4,7 @@ import axios from 'axios';
 import DashboardHeader from './dashboardHeader';
 import DashboardForm from './dashboardForm';
 import DashboardData from './dashboardData';
+import Row from '../common/layout/row';
 
 
 
@@ -65,10 +66,13 @@ export default class Dashboard extends Component {
                     handleChange={this.handleChange}
                     handleSearch={this.handleSearch}
                     handleClear={this.handleClear}
+                    placeholder='Busca por NF'
                     />
+                    <Row>
                     <DashboardData list={this.state.list} handleChange={this.handleChange} nota={this.state.nota}
                     markAsDone={this.markAsDone}
                     />
+                    </Row>
                 </section>
             )
         }

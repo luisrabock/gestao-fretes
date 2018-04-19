@@ -15,7 +15,7 @@ export default props => {
         <div role='form' className='todoForm'>
             <Grid cols='12 9 10'>
                 <input id='nota' className='form-control'
-                    placeholder='Busca por NF'
+                    placeholder={props.placeholder}
                     onChange={props.handleChange}
                     onKeyUp={keyHandler}
                     value={props.nota}
