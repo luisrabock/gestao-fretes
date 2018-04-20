@@ -24,7 +24,6 @@ export default class Dashboard extends Component {
     }
 
   refresh(nota = '') {
-    console.log('entra')
     let search = ''
     if(nota === '') {
       search = `${URL}\data`
@@ -32,7 +31,6 @@ export default class Dashboard extends Component {
     } else {
       search = `${URL_NOTA}${nota}`
     }
-    console.log(search)
     axios.get(`${search}`)
           .then(resp => this.setState({...this.state, nota: '', list: resp.data}))
   }
@@ -56,6 +54,7 @@ export default class Dashboard extends Component {
 
   handleChange(e) {
     this.setState({ nota: e.target.value })
+
   }
         render() {
             return (

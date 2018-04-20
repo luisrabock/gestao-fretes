@@ -65,8 +65,22 @@ router.get('/:cidade', (req, res, next) => {
                 res.status(500).json({
                     message: `Problem with data structure: ${err}`,
                     Error: err
-                })
             })
+        })
+});
+
+router.get('/transp/:transportadora', (req, res, next) => {
+    const transportadora = req.params.transportadora;
+        Tax.find({transp: transportadora })
+            .then(docs => {
+                res.status(200).json(docs)
+            })
+            .catch(err => {
+                res.status(500).json({
+                    message: `Problem with data structure: ${err}`,
+                    Error: err
+            })
+        })
 });
 
 

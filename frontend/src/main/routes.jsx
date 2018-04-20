@@ -10,7 +10,7 @@ import Prefat from '../common/template/prefat';
 import Doccob from '../common/template/doccob';
 import Individual from '../common/template/individual';
 import Dashboard from '../deliveries/dashboard';
-import Grid from '../deliveries.1/gridNf';
+import Grid from '../dashboard/gridNf';
 import Tax from '../tax/taxMain';
 import Deadline from '../deadlines/deadlines';
 

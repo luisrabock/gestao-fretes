@@ -4,8 +4,6 @@ import IconButton from '../common/layout/iconButton'
 
 export default props => {
   const makeRows = () => {
-    console.log('datatable')
-    console.log(props.tax)
     const tax = props.tax || []
     return tax.map(doc => (
       <tbody key={doc._id}>

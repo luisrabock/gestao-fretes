@@ -2,7 +2,7 @@ import React from 'react';
 import Grid from '../common/layout/grid';
 import IconButton from '../common/layout/iconButton';
 import Row from '../common/layout/row';
-
+//precisa refatorar esse componente para pasta template, sera um componente generico
 export default props => {
       const keyHandler = (e) => {
         if (e.key === 'Enter') {

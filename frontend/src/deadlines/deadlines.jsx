@@ -20,30 +20,28 @@ export default class Deadline extends Component {
         this.handleSearch = this.handleSearch.bind(this);
         this.handleClear = this.handleClear.bind(this);
         this.openModal = this.openModal.bind(this);
-        this.getTax();
     }
 
     handleChange(e) {
-      this.setState({ cidade: e.target.value.toUpperCase() })
+      this.setState({ cidade: e.target.value })
   
     }
     handleSearch() {
     this.getTax(this.state.cidade)
   }
 
-    getTax(cidade = '') {
+    getTax(cidade) {
       let search = '';
-      if(cidade == '') {
-        search = `${URL}`
-      } else {
-        search = `${URL}${cidade}`
-      }
+      search = `${URL}${cidade.toUpperCase()}`
+ 
       axios.get(`${search}`)
             .then(resp => this.setState({...this.state,tax: resp.data }))
     }
+
     handleClear() {
-      this.getTax()
-    }
+      this.setState({...this.state,tax: '', cidade: ''})
+}
+
 
     openModal() {
       this.setState({
