@@ -57,13 +57,9 @@ router.post('/', (req, res, next) => {
 
 router.get('/:cidade', (req, res, next) => {
     const cidade = req.params.cidade;
-        Tax.findOne({cidadeDest: cidade })
-            .then(result => {
-                res.status(201).json({
-                    message: `Successful getById request`,
-                    URL: `http://localhost:3000/tax${cidade}`,
-                    data: result
-                })
+        Tax.find({cidadeDest: cidade })
+            .then(docs => {
+                res.status(200).json(docs)
             })
             .catch(err => {
                 res.status(500).json({

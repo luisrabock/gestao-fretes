@@ -11,7 +11,7 @@ export default (props) => {
     const notes = props.notes || []
     return notes.map(doc => (
       <tbody key={doc._id}>
-        <tr className='text-center'>
+        <tr>
             <td >{doc.nota}</td>
             <td>{doc.serie}</td>
             <td>{doc.cgcTransp}</td>
@@ -23,13 +23,12 @@ export default (props) => {
             <td>{doc.cidade}</td>
             <td>{doc.estadoDest}</td>
             <td >{doc.cidadeDest}</td>
-            <td >{doc.entrega == true ? <Small onClick={() => props.markAsPending(doc)} className='teste' classe='success teste' icone='check'/> : <Small classe='danger teste' icone='close'/> }</td>
+            <td >{doc.entrega == true ? <Small className='teste' classe='success' icone='check'/> : <Small classe='danger' icone='close'/> }</td>
             <td className='teste'><span className='teste'><IconButton style='warning' icon='undo'
             onClick={() => props.markAsPending(doc)}
                 ></IconButton></span></td>
         </tr>
       </tbody>
-      
     ))
 }
 return (
@@ -37,7 +36,7 @@ return (
   <Grid cols='12 9 12'>
     <table className='table table-bordered table-hover table-striped'>
         <thead>
-            <tr className='text-center'>
+            <tr>
                 <th>Nota</th>
                 <th>Serie</th>
                 <th>Transportador</th>
@@ -46,7 +45,7 @@ return (
                 <th>Embarque</th>
                 <th>Previsão</th>
                 <th>Estado</th>
-                <th className='text-center'>Cidade</th>
+                <th>Cidade</th>
                 <th>Estado Destino</th>
                 <th>Cidade Destino</th>
                 <th>Entrega</th>

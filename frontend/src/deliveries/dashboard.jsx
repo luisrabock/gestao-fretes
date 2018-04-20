@@ -56,7 +56,6 @@ export default class Dashboard extends Component {
 
   handleChange(e) {
     this.setState({ nota: e.target.value })
-    console.log(nota)
   }
         render() {
             return (

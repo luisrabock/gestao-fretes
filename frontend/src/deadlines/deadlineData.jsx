@@ -1,8 +1,11 @@
 import React from 'react';
 import Grid from '../common/layout/grid';
+import IconButton from '../common/layout/iconButton'
 
 export default props => {
   const makeRows = () => {
+    console.log('datatable')
+    console.log(props.tax)
     const tax = props.tax || []
     return tax.map(doc => (
       <tbody key={doc._id}>
@@ -13,6 +16,9 @@ export default props => {
             <td >{doc.cidadeDest}</td>
             <td >{doc.transp}</td>
             <td ><span className='tag label label-primary'>{doc.previsao}</span></td>
+            <td><span className='teste'><IconButton style='warning' icon='undo'
+            onClick={() => props.openModal()}>
+            </IconButton></span></td>
         </tr>
       </tbody>
       
@@ -31,6 +37,7 @@ export default props => {
               <th>Cidade destino</th>
               <th>Transportadora</th>
               <th>Prazo</th>
+              <th>Atualizar</th>
           </tr>
       </thead>
     {makeRows()}
