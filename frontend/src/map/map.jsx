@@ -38,7 +38,7 @@ componentDidMount() {
         defaultCenter={mapConfig.center}
         defaultZoom={mapConfig.zoom}
         provider={getProvider}>
-      { this.state.markers.map(doc => <Marker anchor={doc.coordenadas}/>)}
+      { this.state.markers.map(doc => <Marker key={doc._id} anchor={doc.coordenadas}/>)}
       </Map>
     </div>
       
@@ -48,5 +48,3 @@ componentDidMount() {
 }
 
 export default PigeonMaps;
-
-

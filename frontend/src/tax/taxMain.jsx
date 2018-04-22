@@ -6,7 +6,7 @@ import TaxForm from '../deliveries/dashboardForm';
 import TaxHeader from '../deliveries/dashboardHeader';
 import Modal from 'react-awesome-modal';
 
-const URL = 'http://localhost:3000/tax';
+const URL = 'http://localhost:3000/tax/';
 
 class Tax extends Component {
   
@@ -19,6 +19,8 @@ class Tax extends Component {
     }
     this.openModal = this.openModal.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClear = this.handleClear.bind(this);
     this.refresh();
   }
   
@@ -29,6 +31,10 @@ openModal() {
 }
 handleSearch() {
   this.refresh(this.state.transportadora)
+}
+
+handleClear() {
+  this.refresh()
 }
 closeModal() {
   this.setState({
@@ -42,28 +48,28 @@ refresh(transportadora = '') {
     search = `${URL}`
     
   } else {
-    search = `${URL_NOTA}transp/${transportadora}`
+    search = `${URL}transp/${transportadora}`
   }
   console.log(search)
   axios.get(`${search}`)
         .then(resp => this.setState({...this.state, transportadora: '', tax: resp.data}))
 }
 
-handleClear() {
-  this.setState({...this.state,tax: '', transportadora: ''})
-}
-
 handleChange(e) {
   this.setState({ transportadora: e.target.value })
 
 }
-
-
   render() {
     return (
       <section div className='content'>
         <TaxHeader name='Dashboard' small=' taxas' />
-        <TaxForm placeholder='Busca transportadora' handleChange={this.handleChange} nota={this.state.transportadora} handleClear={this.handleClear} handleSearch={this.handleSearch}/>
+        <TaxForm nota={this.state.transportadora} 
+        handleChange={this.handleChange}
+        handleSearch={this.handleSearch}
+        handleClear={this.handleClear}
+        placeholder='Busca transportadora'
+        
+         />
         <TaxTable openModal={this.openModal} tax={this.state.tax}/>
           <Modal 
               visible={this.state.visible}
