@@ -20,6 +20,27 @@ router.get('/', (req, res, next) => {
         });
 });
 
+router.get('/cidades', (req, res, next) => {
+    Location.aggregate([
+        { "$project": {
+            "_id": 0,
+            value: "$cidade",
+            label: "$cidade"
+        }},
+        {$sort: {value: 1}}
+    ])
+        .then(docs => {
+            res.status(200).json(docs)
+        })
+        .catch(err => {
+            res.status(500).json({
+                message: `Problem with data structure: ${err}`,
+                Error: err
+            })
+        });
+});
+
+
 router.post('/', (req, res, next) => {
     const location = new Location({
         cidade: req.body.cidade,

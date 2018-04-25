@@ -20,8 +20,12 @@ export default () => (
     <MenuItem path='#/individual' label='Inserção individual' icon='plus-circle' />
   </MenuTree>
   <MenuTree label='Taxas e tarifas' icon='percent'>
-    <MenuItem path='#' label='Cadastro' icon='plus-circle'/>
-    <MenuItem path='#/tax' label='Consulta e edição' icon='search'/>
+    <MenuItem path='#/tax' label='Cadastro' icon='plus-circle'/>
+    <MenuItem path='#' label='Consulta e edição' icon='search'/>
+  </MenuTree>
+  <MenuTree label='Regiões' icon='map-o'>
+    <MenuItem path='#/regions' label='Cadastro' icon='plus-circle'/>
+    <MenuItem path='#' label='Consulta e edição' icon='search'/>
   </MenuTree>
   <MenuTree label='Prazos de entrega' icon='clock-o'>
     <MenuItem path='#' label='Cadastro' icon='plus-circle'/>

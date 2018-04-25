@@ -13,6 +13,7 @@ import Dashboard from '../deliveries/dashboard';
 import Grid from '../dashboard/gridNf';
 import Tax from '../tax/taxMain';
 import Deadline from '../deadlines/deadlines';
+import RegionsPost from '../regions/postRegions';
 
 
 export default (props) => (
@@ -28,6 +29,7 @@ export default (props) => (
        <Route path='/notas' component={Grid} />
        <Route path='/tax' component={Tax} />
        <Route path='/deadlines' component={Deadline} />
+       <Route path='/regions' component={RegionsPost} />
        <Redirect from ='*' to='/' />
   </Router>
 );
