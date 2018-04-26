@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const dataRoutes = require('./src/routes/data');
 const locationRoutes = require('./src/routes/locations');
 const taxRoutes = require('./src/routes/tax');
+const regionsRoutes = require('./src/routes/regions');
 
 
 
@@ -28,6 +29,7 @@ app.use(cors());
 app.use("/data", dataRoutes);
 app.use("/locations", locationRoutes);
 app.use("/tax", taxRoutes);
+app.use("/regions", regionsRoutes);
 
 
 //refactoring this soon

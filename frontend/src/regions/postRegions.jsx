@@ -10,12 +10,16 @@ import axios from 'axios';
 import Row from '../common/layout/row';
 
 const URL = 'http://localhost:3000/locations/cidades';
+const URL_SUB = 'http://localhost:3000/regions/';
 
 const formikEnhancer = withFormik({
   validationSchema: Yup.object().shape({
     region: Yup.string()
       .lowercase('Deve ser digitado em lowercase')
       .required('Região é obrigatória!'),
+    transp: Yup.string()
+      .lowercase('Deve ser digitado em lowercase')
+      .required('Transportadora é obrigatória!'),
     citys: Yup.array()
       .required('É obrigatório pelo menos uma cidade')
       .of(
@@ -28,17 +32,17 @@ const formikEnhancer = withFormik({
   mapPropsToValues: props => ({
     region: '',
     citys: [],
+    transp:''
   }),
-  
   handleSubmit: (values, { setSubmitting }) => {
     const payload = {
       ...values,
       citys: values.citys.map(t => t.value),
     };
-    setTimeout(() => {
-      alert(JSON.stringify(payload, null, 2));
+    axios.post(`${URL_SUB}`, {regions: payload.region, citys: payload.citys, transp: payload.transp})
+      .then(resp => console.log(resp))
+      alert(JSON.stringify(payload));
       setSubmitting(false);
-    }, 1000);
   },
   displayName: 'MyForm',
 });
@@ -74,6 +78,24 @@ const MyForm = props => {
       touched.region && (
         <div style={{ color: 'red', marginTop: '.5rem' }}>
           {errors.region}
+        </div>
+      )}
+
+      <label htmlFor="transp" style={{ display: 'block' }}>
+        Transportadora
+      </label>
+      <input
+        id="transp"
+        placeholder="Digite o CNPJ do transportador"
+        type="text"
+        value={values.transp}
+        onChange={handleChange}
+        onBlur={handleBlur}
+      />
+      {errors.transp &&
+      touched.transp && (
+        <div style={{ color: 'red', marginTop: '.5rem' }}>
+          {errors.transp}
         </div>
       )}
       <MySelect
