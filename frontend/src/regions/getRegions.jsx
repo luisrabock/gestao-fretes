@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Modal from 'react-awesome-modal';
 
 import DashboardHeader from '../deliveries/dashboardHeader';
 import DashboardForm from '../deliveries/dashboardForm';
-import DashboardData from '../tax/texTable';
+import DashboardData from '../regions/regionsData';
 import Row from '../common/layout/row';
-import Regions from './taxForms';
 
 
 
@@ -20,7 +18,6 @@ export default class Dashboard extends Component {
         this.handleSearch = this.handleSearch.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleClear = this.handleClear.bind(this);
-        this.openModal = this.openModal.bind(this);
         this.refresh();
     }
 
@@ -52,18 +49,6 @@ export default class Dashboard extends Component {
     this.setState({ region: e.target.value })
 
   }
-
-openModal() {
-  this.setState({
-      visible : true
-  });
-}
-
-closeModal() {
-  this.setState({
-      visible : false
-  });
-}
         render() {
             return (
                 <section className='content'>
@@ -72,19 +57,8 @@ closeModal() {
                     placeholder='Busca por região' handleChange={this.handleChange}
                     handleSearch={this.handleSearch} handleClear={this.handleClear}/>
                     <Row>
-                    <DashboardData list={this.state.list} markAsRemove={this.markAsRemove} openModal={this.openModal}/>
+                    <DashboardData list={this.state.list} markAsRemove={this.markAsRemove}/>
                     </Row>
-                    <Modal 
-                        visible={this.state.visible}
-                        width="600"
-                        height="500"
-                        effect="fadeInUp"
-                        onClickAway={() => this.closeModal()}>
-                        <div>
-                            <Regions />
-                            <a href="javascript:void(0);" onClick={() => this.closeModal()}>Close</a>
-                        </div>
-                    </Modal>
                 </section>
             )
         }

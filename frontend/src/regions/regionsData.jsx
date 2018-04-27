@@ -15,8 +15,11 @@ export default props => {
         <tr className='text-center'>
           <td>{doc.regions}</td>
           <td>{doc.transp}</td>
-          <td><span className='teste'><IconButton style='warning' icon='pencil'
-          onClick={() => props.openModal()}></IconButton></span>
+          <td><span className='teste'><IconButton style='primary' icon='eye'
+          ></IconButton></span>
+          </td>
+          <td><span className='teste'><IconButton style='danger' icon='trash-o'
+          onClick={() => props.markAsRemove(doc)}></IconButton></span>
           </td>
         </tr>
       </tbody>
@@ -29,7 +32,8 @@ export default props => {
                 <tr className='text-center'>
                     <th>Região</th>
                     <th>Transportadora</th>
-                    <th>Taxas e tarifas</th>
+                    <th>Visualizar</th>
+                    <th>Excluir</th>
                 </tr>
             </thead>
           {renderRows()}

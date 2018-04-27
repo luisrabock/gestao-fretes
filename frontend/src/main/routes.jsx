@@ -14,6 +14,7 @@ import Grid from '../dashboard/gridNf';
 import Tax from '../tax/taxMain';
 import Deadline from '../deadlines/deadlines';
 import RegionsPost from '../regions/postRegions';
+import RegionsGet from '../regions/getRegions';
 
 
 export default (props) => (
@@ -30,6 +31,8 @@ export default (props) => (
        <Route path='/tax' component={Tax} />
        <Route path='/deadlines' component={Deadline} />
        <Route path='/regions' component={RegionsPost} />
+       <Route path='/getRegions' component={RegionsGet} />
        <Redirect from ='*' to='/' />
   </Router>
 );
+

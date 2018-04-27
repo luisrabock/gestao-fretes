@@ -38,9 +38,9 @@ router.post('/', (req, res, next) => {
     })
 });
 
-router.get('/:id', (req, res, next) => {
-    const id = req.params.id;
-        Regions.find({_id: id })
+router.get('/:region', (req, res, next) => {
+    const region = req.params.region;
+        Regions.find({regions: region })
             .then(docs => {
                 res.status(200).json(docs)
             })
@@ -48,9 +48,11 @@ router.get('/:id', (req, res, next) => {
                 res.status(500).json({
                     message: `Problem with data structure: ${err}`,
                     Error: err
-                })
-            })
+                 })
+             })
 });
+
+
 
 
 

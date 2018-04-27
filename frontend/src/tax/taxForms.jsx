@@ -1,4 +1,4 @@
-import './formik-demo.css';
+import '../regions/formik-demo.css';
 import React from 'react';
 import { render } from 'react-dom';
 import { withFormik } from 'formik';
@@ -173,9 +173,10 @@ refresh() {
 const MyEnhancedForm = formikEnhancer(MyForm);
 
 // Helper styles for demo
-import './formik-demo.css';
+import '../regions/formik-demo.css';
+
 import { DisplayFormikState,
-} from './formik-helper';
+} from '../regions/formik-helper';
 
 const Regions = () => (
   <Row>
